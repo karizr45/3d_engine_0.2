@@ -1,9 +1,9 @@
 import pygame
 from math import *
 
-from config import *
+from setting import *
 from functions import *
-from player import Player
+from Player import Player
 
 display = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
