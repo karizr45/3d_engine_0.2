@@ -13,6 +13,6 @@ class Player:
         key = pygame.key.get_pressed()
 
         if key[pygame.K_LEFT]:
-            self.angle -= 0.3 * self.delta * 8
+            self.angle -= 0.3 * self.delta * 12
         if key[pygame.K_RIGHT]:
-            self.angle += 0.3 * self.delta * 8
+            self.angle += 0.3 * self.delta * 12
