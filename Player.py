@@ -2,7 +2,7 @@ from math import *
 
 import pygame.key
 
-from setting import *
+from config import *
 
 class Player:
     def __init__(self):
@@ -10,21 +10,15 @@ class Player:
         self.y = half_height
         self.angle = 0
         self.delta = 0
-        self.speed = 500
-        self.ver_a = 0
+        self.speed = 450
 
     def move(self):
         key = pygame.key.get_pressed()
         cos_a, sin_a = cos(self.angle), sin(self.angle)
 
-        if key[pygame.K_LEFT]:
-            self.angle -= 3 * self.delta
-        if key[pygame.K_RIGHT]:
-            self.angle += 3 * self.delta
-        if key[pygame.K_UP]:
-            self.ver_a -= 1500 * self.delta
-        if key[pygame.K_DOWN]:
-            self.ver_a += 1500 * self.delta
+        self.mouse_control()
+        if key[pygame.K_ESCAPE]:
+            quit()
 
         if key[pygame.K_w]:
             self.x += cos_a * self.delta * self.speed
@@ -38,3 +32,9 @@ class Player:
         if key[pygame.K_d]:
             self.x -= sin_a * self.delta * self.speed
             self.y += cos_a * self.delta * self.speed
+
+    def mouse_control(self):
+        if pygame.mouse.get_focused():
+            difference = pygame.mouse.get_pos()[0] - half_width
+            pygame.mouse.set_pos((half_width, half_height))
+            self.angle += difference * self.delta * 0.1
