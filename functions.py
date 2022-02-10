@@ -2,7 +2,7 @@ import pygame
 import time
 from math import *
 
-from config import *
+from setting import *
 
 cur_time = time.time_ns()
 def delta_time():

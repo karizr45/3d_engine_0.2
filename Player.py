@@ -2,7 +2,7 @@ from math import *
 
 import pygame.key
 
-from config import *
+from setting import *
 
 class Player:
     def __init__(self):
